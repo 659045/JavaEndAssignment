@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="230.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javaendassignment.LoginController">
+   <Button fx:id="btnLogin" layoutX="85.0" layoutY="276.0" mnemonicParsing="false" onAction="#onButtonLoginClick" prefHeight="25.0" prefWidth="61.0" text="Login" />
+   <PasswordField fx:id="txtPassword" layoutX="41.0" layoutY="175.0" prefHeight="25.0" prefWidth="149.0" />
+   <Label layoutX="47.0" layoutY="94.0" text="Username" />
+   <Label layoutX="47.0" layoutY="158.0" text="Password" />
+   <TextField fx:id="txtUsername" layoutX="41.0" layoutY="111.0" />
+   <Label fx:id="lblError" layoutX="41.0" layoutY="220.0" prefHeight="17.0" prefWidth="149.0" textFill="#ff5252" />
+   <Label layoutX="39.0" layoutY="35.0" text="Library System">
+      <font>
+         <Font name="System Bold" size="22.0" />
+      </font>
+   </Label>
+</Pane>
