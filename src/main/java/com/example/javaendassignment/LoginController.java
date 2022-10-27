@@ -42,6 +42,8 @@ public class LoginController {
                 Stage currentStage = (Stage) btnLogin.getScene().getWindow();
                 currentStage.close();
                 FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("main.fxml"));
+                MainController mainController = new MainController(u);
+                fxmlLoader.setController(mainController);
                 Scene scene = new Scene(fxmlLoader.load(), 530, 340);
                 Stage stage = new Stage();
                 stage.setTitle("Main");

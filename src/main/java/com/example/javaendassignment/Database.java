@@ -30,6 +30,10 @@ public class Database {
         return null;
     }
 
+    public void setItemStatusFalse(Item item){
+        item.status = false;
+    }
+
     Date d1 = new Date(2000, Calendar.OCTOBER,10);
 
     public Database() {

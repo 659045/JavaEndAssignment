@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="342.0" prefWidth="530.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javaendassignment.MainController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="342.0" prefWidth="530.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <Rectangle arcHeight="5.0" arcWidth="5.0" height="68.0" layoutY="-3.0" stroke="BLACK" strokeType="INSIDE" width="530.0" />
    <Button fx:id="btnLendReceiveTab" layoutX="170.0" layoutY="40.0" mnemonicParsing="false" onAction="#onButtonLendTabClick" prefHeight="25.0" prefWidth="120.0" text="Lending/Receiving" />
    <Button fx:id="btnCollection" layoutX="290.0" layoutY="40.0" mnemonicParsing="false" onAction="#onButtonCollectionClick" prefHeight="25.0" prefWidth="120.0" text="Collection" />
@@ -16,7 +16,7 @@
          <Font size="22.0" />
       </font>
    </Label>
-   <Group fx:id="lendGroup" layoutX="30.0" layoutY="77.0" visible="false">
+   <Group fx:id="lendGroup" layoutX="30.0" layoutY="77.0">
       <children>
             <Label fx:id="lblWelcome" text="Welcome">
                <font>

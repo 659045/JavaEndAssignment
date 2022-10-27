@@ -20,11 +20,12 @@ public class MainController implements Initializable {
     private Item item;
     private User user;
 
-    @FXML
-    private Label lblWelcome, lblLendMsg, lblReceiveMsg, lblAddItemError;
+    public MainController(User user) {
+        this.user = user;
+    }
 
     @FXML
-    private Button btnLendReceiveTab, btnCollection, btnMembers, btnLend, btnReceive, btnAddItem, btnEditItem, btnDeleteItem, btnCancelItemToTableView, btnAddItemToTableView;
+    private Label lblWelcome, lblLendMsg, lblReceiveMsg, lblAddItemError;
 
     @FXML
     private TextField txtReceiveID, txtLendID, txtLendMember, txtAddItemCode, txtAddItemTitle, txtAddItemAuthor;
@@ -52,6 +53,7 @@ public class MainController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         lendGroup.setVisible(true);
         collectionGroup.setVisible(false);
+        lblWelcome.setText(String.format("Welcome %s", user.username));
 
         ObservableList<Item> items = FXCollections.observableList(db.getItems());
 
@@ -60,7 +62,7 @@ public class MainController implements Initializable {
             colAvailable.setCellValueFactory(new PropertyValueFactory<Item, Boolean>("status"));
             colTitle.setCellValueFactory(new PropertyValueFactory<Item, String>("title"));
             colAuthor.setCellValueFactory(new PropertyValueFactory<Item, String>("author"));
-            tvItems.setItems(items);
+            //tvItems.setItems(items);
         }
     }
 
@@ -77,10 +79,10 @@ public class MainController implements Initializable {
             user = db.getUserByID(Integer.parseInt(txtLendMember.getText()));
 
             if (item != null && Objects.equals(item.status, true) && user != null) {
-                //set item status in database class
-                item.status = false;
+                db.setItemStatusFalse(item);
                 item.date = LocalDate.now();
                 lblLendMsg.setText(String.format("Item %s has been lend", item.id));
+                clearAddItemTextFields();
             } else if (item != null && Objects.equals(item.status, false) && user != null) {
                 lblLendMsg.setText(String.format("Item %s is unavailable", item.id));
             } else {
@@ -114,6 +116,7 @@ public class MainController implements Initializable {
                 }
 
                 lblReceiveMsg.setText(String.format("Item %s has been received", item.id));
+                clearAddItemTextFields();
                 item.date = null;
                 item.status = true;
                 return;
@@ -195,5 +198,8 @@ public class MainController implements Initializable {
         txtAddItemCode.clear();
         txtAddItemTitle.clear();
         txtAddItemAuthor.clear();
+        txtLendID.clear();
+        txtLendMember.clear();
+        txtReceiveID.clear();
     }
 }
